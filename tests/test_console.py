@@ -136,10 +136,7 @@ class test_console(unittest.TestCase):
     def test_quit(self):
         with patch('sys.stdout', new=io.StringIO()) as f:
             HBNBCommand().onecmd("quit")
-        if f.getvalue() == None:
-            self.assertTrue(True)
-        else:
-            self.assertFalse(False)
+        self.assertIsNone(f.getvalue())
 
     def test_help(self):
         with patch('sys.stdout', new=io.StringIO()) as f:
